@@ -1,7 +1,8 @@
 
 (function() {
 	var	fs = require('fs'),
-		path = require('path');
+		path = require('path'),
+		argv = require('minimist')(process.argv.slice(2));
 
 
 	function randomInt(max) {
@@ -40,7 +41,13 @@
 
 	var wordList = fs.readFileSync('wordlist.txt', {encoding:'utf8'}).split(/\n/),
 		word = randomWord(),
-		shuffled = shuffle(word);
+		shuffled;
+
+	if (argv['last']) {
+		word = fs.readFileSync('lastword.txt', {encoding:'utf8'}).trim();
+	}
+
+	shuffled = shuffle(word)
 
 	fs.writeFileSync('lastword.txt', word);
 

@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/pentaphobe/word_target/issues"
   },
-  "homepage": "https://github.com/pentaphobe/word_target"
+  "homepage": "https://github.com/pentaphobe/word_target",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
 }
